@@ -1,0 +1,49 @@
+{% extends 'base.html '%}
+
+{% block title %} Administração {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-6">
+        <ul class="list-group">
+        {% for person in persons %}
+
+            <li class="list-group-item">
+                <a href="{% url 'person_update' person.id %}">{{ person.first_name }}</a>
+                <a href="{% url 'person_delete' person.id %}" class="btn btn-danger" >
+                    <i class="fa fa-trash" aria-hidden="true"></i>Delete
+                </a>
+
+            </li>
+
+        {% endfor %}
+        </ul>
+            <br>
+            <a href="{% url 'person_new' %}" class="btn btn-info">Novo Cliente</a>
+
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Ola {{ user.username }} <a href="{% url 'logout' %}" class="btn btn-info">Sair</a> </p>
+            {% else %}
+
+            {% endif %}
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvovimento Web com Djanjo 2.0</span>
+      </div>
+    </footer>
+{% endblock %}

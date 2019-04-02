@@ -1,0 +1,46 @@
+{% extends 'base.html '%}
+
+{% load bootstrap %}
+
+{% block title %} Página de Login {% endblock %}
+
+{% block main %}
+    <div class="container">
+  <div class="row">
+    <div class="col">
+        0
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-6">
+      <h2>Login</h2>
+            <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvovimento Web com Djanjo 2.0</span>
+      </div>
+    </footer>
+{% endblock %}
+
