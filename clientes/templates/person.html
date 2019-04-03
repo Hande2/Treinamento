@@ -8,13 +8,15 @@
 
         </div>
         <div class="col-6">
+            <h3>Listagem de clientes</h3>
         <ul class="list-group">
         {% for person in persons %}
 
             <li class="list-group-item">
                 <a href="{% url 'person_update' person.id %}">{{ person.first_name }}</a>
-                <a href="{% url 'person_delete' person.id %}" class="btn btn-danger" >
+                <a href="{% url 'person_delete' person.id %}" class="btn btn-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>Delete
+                </a>
                 </a>
 
             </li>
