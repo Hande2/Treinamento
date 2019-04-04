@@ -5,14 +5,17 @@
 {% block main %}
 
     <div class="row">
+
         <div class="col">
 
         </div>
         <div class="col-6">
-          <h1>Seja Bem Vindo</h1>
+          <h1>Seja Bem Vindo a Home 3</h1>
+            {{ minha_variavel }}
         </div>
 
-        {{ result }}
+
+        {{ context }}
 
         <div class="col">
           {% if user.is_authenticated %}
