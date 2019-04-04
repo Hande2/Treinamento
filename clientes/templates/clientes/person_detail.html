@@ -1,0 +1,11 @@
+<h1>Person Detail</h1>
+
+{{ object.first_name }}<br>
+{{ Object.last_name}}
+{{ Object.age }}
+
+<p> Date: {{ now|date }} </p>
+
+
+
+<a href="{% url 'person_update_cb' person.pk %}">Alterar</a>
