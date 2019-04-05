@@ -5,24 +5,32 @@ from .forms import PersonForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.utils import timezone
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 @login_required
 def persons_list(request):
-    nome = request.GET.get('nome', None)
-    sobrenome = request.GET.get('sobrenome', None)
-    checkbox = request.GET.get('meu-checkbox', None)
+    persons = Person.objects.all()
+    footer_message = "Aqui tem coragem"
+    return render(
+        request, 'person.html', {'persons': persons, 'footer_message': footer_message})
 
-    if checkbox == 'on':
-        persons = Person.objects.filter(ativo=True)
 
-    if nome or sobrenome:
-        persons = Person.objects.filter(first_name__icontains=nome) | Person.objects.filter(last_name__icontains=sobrenome)
+    #nome = request.GET.get('nome', None)
+    #sobrenome = request.GET.get('sobrenome', None)
+    #checkbox = request.GET.get('meu-checkbox', None)
 
-    else:
-        persons = Person.objects.all()
+    #if checkbox == 'on':
+        #persons = Person.objects.filter(ativo=True)
 
-    return render(request, 'person.html', {'persons': persons})
+    #if nome or sobrenome:
+        #persons = Person.objects.filter(first_name__icontains=nome) | Person.objects.filter(last_name__icontains=sobrenome)
+
+    #else:
+
+
+    #return render(request, 'person.html', {'persons': persons, 'footer_message': footer_message})
+
+
 
 @login_required
 def persons_new(request):
@@ -73,3 +81,11 @@ class PersonUpdate (UpdateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'salary', 'bio', 'photo']
     success_url = '/clientes/person_list'
+
+class PersonDetele (DeleteView):
+    model = Person
+    success_url = '/clientes/person_list'
+
+    # def get_success_url(self):
+       # return reverse_lazy('person_list_cb')
+

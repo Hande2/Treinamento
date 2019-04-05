@@ -10,6 +10,7 @@ from .views2 import PersonList
 from .views2 import PersonDetail
 from .views2 import PersonCreate
 from .views2 import PersonUpdate
+from .views2 import PersonDetele
 
 
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
     path('person_detail/<int:pk>/', PersonDetail.as_view(), name="person_detail_cb"),
     path('person_update/<int:pk>/', PersonUpdate.as_view(), name="person_update_cb"),
     path('person_create/', PersonCreate.as_view(), name="person_create"),
+    path('person_delete/<int:pk>/', PersonDetele.as_view(), name="person_delete_cb"),
 ]

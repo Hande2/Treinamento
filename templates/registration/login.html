@@ -2,6 +2,8 @@
 
 {% load bootstrap %}
 
+{% load my_tags %}
+
 {% block title %} Página de Login {% endblock %}
 
 {% block main %}
@@ -35,12 +37,11 @@
 
 {% endblock %}
 
+
+
 {% block footer %}
 
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Desenvovimento Web com Djanjo 2.0 Aqui tem Coragem :D</span>
-      </div>
-    </footer>
+    {% include 'footer.html' %}
+
 {% endblock %}
 

@@ -1,8 +1,13 @@
 {% extends 'base.html '%}
 
+{% load filters %}
+
+{$ load my_tags $}
+
 {% block title %} Administração {% endblock %}
 
 {% block main %}
+
 
     <div class="row">
         <div class="col-12">
@@ -10,12 +15,7 @@
                 <div class="form-group mx-sm-3 mb-2">
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome">
-                </div>
 
-                <input type="checkbox" name="meu-checkbox">
-                <input type="range", name="meu-radio    ">
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
             </form>
         </div>
@@ -42,6 +42,8 @@
 
             </li>
 
+            {% empty %}
+                <li>Desculpe, a lista está vazia.</li>
         {% endfor %}
         </ul>
             <br>
@@ -59,14 +61,8 @@
         </div>
     </div>
 
-
 {% endblock %}
 
 {% block footer %}
-
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Desenvovimento Web com Djanjo 2.0 Aqui tem coragem :D</span>
-      </div>
-    </footer>
+    {% include 'footer.html' %}
 {% endblock %}
