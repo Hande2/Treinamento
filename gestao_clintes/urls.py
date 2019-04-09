@@ -34,3 +34,7 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+admin.site.site_header = 'Gestão de clientes'
+admin.site.index_title = 'Administracao'
+admin.site.site_title = 'Seja bem vindo ao Gestao de clientes'
