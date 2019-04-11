@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Person
 from produtos.models import Produto
@@ -65,10 +66,10 @@ def persons_delete(request, id):
         return redirect("person_list")
     return render(request, "person_delete_confirma.html", {'person': person})
 
-class PersonList(ListView):
+class PersonList(LoginRequiredMixin ,ListView):
     model = Person
 
-class PersonDetail(DetailView):
+class PersonDetail(LoginRequiredMixin, DetailView):
     model = Person
 
     def get_context_data(self, **kwargs):
@@ -76,17 +77,19 @@ class PersonDetail(DetailView):
         context ['now'] = timezone.now()
         return context
 
-class PersonCreate (CreateView):
+class PersonCreate (LoginRequiredMixin, CreateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'salary', 'bio', 'photo']
     success_url = '/clientes/person_list'
 
-class PersonUpdate (UpdateView):
+class PersonUpdate (LoginRequiredMixin, UpdateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'salary', 'bio', 'photo']
     success_url = '/clientes/person_list'
 
-class PersonDetele (DeleteView):
+class PersonDetele (LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    permission_required = ('clientes.deletar_clientes',)
+
     model = Person
     success_url = '/clientes/person_list'
 
