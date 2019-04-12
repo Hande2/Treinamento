@@ -22,6 +22,7 @@ from produtos import urls as produtos_urls
 from vendas import urls as vendas_urls
 from home import urls as home_urls
 from django.contrib.auth import views as auth_views
+from django.contrib.auth import urls
 
 urlpatterns = [
 
@@ -31,7 +32,9 @@ urlpatterns = [
     path('vendas/', include(vendas_urls)),
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', include('django.contrib.auth.urls'))
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
