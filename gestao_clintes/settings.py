@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'mymiddleware.MetaData.MetaData',
 ]
 
 ROOT_URLCONF = 'gestao_clintes.urls'
