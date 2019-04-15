@@ -21,3 +21,25 @@ class DashboardView(View):
         data['count'] = Venda.objects.all().aggregate(Count('id'))['id__count']
         data['n_ped_nfe'] = Venda.objects.n_ped_nfe()
         return render(request, 'vendas/dashboard.html', data)
+
+class NovoPedido(View):
+    def get(self, request):
+        return render(request, 'vendas/novo-pedido.html')
+
+    def post(self, request):
+        data = {}
+        data['numero'] = request.POST['numero']
+        data['desconto'] = float(request.POST)['desconto']
+        data['venda'] = (request.POST)['venda_id']
+
+        if data['venda']:
+            venda = Venda.objects.get(id=data['venda'])
+        else:
+            venda = Venda.objects.create(
+                numero=data['numero'], desconto=data['desconto'])
+
+        itens = venda.itemdopedido_set.all()
+        data['venda_obj'] = venda
+        data['itens'] = itens
+        return render(
+            request, 'vendas/novo-pedido.html')
