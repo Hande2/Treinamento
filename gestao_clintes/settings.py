@@ -35,11 +35,17 @@ INSTALLED_APPS = [
     #'grappelii',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrapform',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
     'clientes',
     'home',
     'vendas',
@@ -47,6 +53,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'debug_toolbar',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,6 +87,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gestao_clintes.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 
 # Database
