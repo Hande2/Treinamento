@@ -11,12 +11,11 @@ class ItemPedidoInline(admin.TabularInline):
 
 class VendaAdmin(admin.ModelAdmin):
     readonly_fields = ('valor',)
-    autocomplete_fields = ('pessoa',)
-    list_filter = ('pessoa__doc',)
-    list_display = ('id', 'pessoa', 'nfe_emitida')
-    search_fields = ('is', 'pessoa__first_name')
+    autocomplete_fields = ("pessoa",)
+    list_filter = ('pessoa__doc', 'desconto')
+    list_display = ('id', 'numero', 'pessoa', 'nfe_emitida', 'valor')
+    search_fields = ('id', 'pessoa__first_name', 'pessoa__doc__num_doc')
     actions = [nfe_emitida, nfe_nao_emitida]
-    #filter_horizontal = ['produtos',]
     inlines = [ItemPedidoInline]
 
     def total(self, obj):
@@ -25,5 +24,5 @@ class VendaAdmin(admin.ModelAdmin):
     total.short_description = 'Total'
 
 
-admin.site.register(ItemDoPedido)
 admin.site.register(Venda, VendaAdmin)
+admin.site.register(ItemDoPedido)

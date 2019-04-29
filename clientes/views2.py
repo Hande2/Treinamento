@@ -109,15 +109,15 @@ class PersonDetele (LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     # def get_success_url(self):
        # return reverse_lazy('person_list_cb')
 
-#ProdutoBulk(View):
- #   def get(self, request):
-  #      produtos = ['Banana', 'Maca', 'Limao', 'Laranja', 'Pera', 'Melancia']
-   #     list_produtos = []
-#
- #       for produto in produtos:
-  #          p = Produto(descricao=produto, preco=10)
-   #         list_produtos.append(p)
+"""ProdutoBulk(View):
+    def get(self, request):
+       produtos = ['Banana', 'Maca', 'Limao', 'Laranja', 'Pera', 'Melancia']
+        list_produtos = []
 
-    #    Produto.objects.bulk_create(list_produtos)
+        for produto in produtos:
+            p = Produto(descricao=produto, preco=10)
+            list_produtos.append(p)
 
-     #   return HttpResponse('Funcionou')
+        Produto.objects.bulk_create(list_produtos)
+
+        return HttpResponse('Funcionou')"""
