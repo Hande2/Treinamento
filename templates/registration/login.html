@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load my_tags %}
+
+{% block title %} Página de Login {% endblock %}
+
+{% block main %}
+    <div class="container">
+  <div class="row">
+    <div class="col">
+        0
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-6">
+      <h2>Login</h2>
+            <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Login</button><a href="{% url 'password_reset' %}" class="btn btn-secondary">Esqueci minha senha</a>
+            </form>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+    {% include 'footer.html' %}
+
+{% endblock %}
+
