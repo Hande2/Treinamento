@@ -34,7 +34,7 @@ INTERNAL_IPS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    #'grappelii',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -156,6 +156,8 @@ MEDIA_ROOT = 'media'
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = 'person_list'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     'statics',
