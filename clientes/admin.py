@@ -35,3 +35,5 @@ admin.site.register(Person, PersonAdmin)
 admin.site.register(Documento, DocumentoAdmin)
 
 
+
+
