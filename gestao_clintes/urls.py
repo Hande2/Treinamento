@@ -30,7 +30,10 @@ urlpatterns = [
     path('clientes/', include(clientes_urls)),
     path('produtos/', include(produtos_urls)),
     path('vendas/', include(vendas_urls)),
+<<<<<<< HEAD
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
+=======
+>>>>>>> 57998c57ef898d8cbdbac9a5f18b40341a245d57
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('allauth.urls')),

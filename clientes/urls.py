@@ -23,6 +23,10 @@ urlpatterns = [
     path('person_detail/<int:pk>/', PersonDetail.as_view(), name="person_detail_cb"),
     path('person_update/<int:pk>/', PersonUpdate.as_view(), name="person_update_cb"),
     path('person_create/', PersonCreate.as_view(), name="person_create"),
+<<<<<<< HEAD
 
+=======
+    path('person_delete/<int:pk>/', PersonDetele.as_view(), name="person_delete_cb"),
+>>>>>>> 57998c57ef898d8cbdbac9a5f18b40341a245d57
 
 ]
